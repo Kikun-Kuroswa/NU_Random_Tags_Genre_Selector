@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Red Moon Under the Heavens | Novel Updates Randomizer</title>
+  <style>
+    :root {
+      --bg-void: #08080a;
+      --bg-panel: #111116;
+      --bg-card: #181820;
+      --bg-chip: #20202a;
+      --bg-chip-hover: #2c161c;
+      --accent-crimson: #dc143c;
+      --accent-bright: #ff2a55;
+      --accent-dark: #7a0b20;
+      --accent-glow: rgba(220, 20, 60, 0.45);
+      --text-main: #f0ecee;
+      --text-muted: #999296;
+      --border-subtle: #28232a;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-void);
+      background-image: 
+        radial-gradient(circle at 50% 0%, rgba(160, 15, 40, 0.22) 0%, transparent 55%),
+        radial-gradient(circle at 85% 90%, rgba(100, 10, 25, 0.12) 0%, transparent 45%);
+      color: var(--text-main);
+      min-height: 100vh;
+      padding-bottom: 60px;
+      line-height: 1.5;
+    }
+
+    /* Header & Red Moon Emblem */
+    header {
+      text-align: center;
+      padding: 45px 20px 30px;
+      border-bottom: 1px solid var(--border-subtle);
+      position: relative;
+    }
+
+    .red-moon {
+      width: 76px;
+      height: 76px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 35%, #ff4d6d, var(--accent-crimson) 55%, #4a0410 100%);
+      box-shadow: 0 0 35px var(--accent-crimson), 0 0 75px rgba(220, 20, 60, 0.3);
+      margin: 0 auto 18px;
+      position: relative;
+      animation: pulseMoon 5s infinite ease-in-out;
+    }
+
+    @keyframes pulseMoon {
+      0%, 100% { box-shadow: 0 0 35px var(--accent-crimson), 0 0 70px rgba(220, 20, 60, 0.3); }
+      50% { box-shadow: 0 0 50px var(--accent-bright), 0 0 95px rgba(255, 42, 85, 0.5); }
+    }
+
+    h1 {
+      font-size: 2.3rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #ffffff;
+      text-shadow: 0 2px 15px var(--accent-glow);
+      font-weight: 800;
+    }
+
+    .subtitle {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-top: 6px;
+      letter-spacing: 1px;
+    }
+
+    .container {
+      max-width: 1220px;
+      margin: 28px auto;
+      padding: 0 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    /* Panels */
+    .panel {
+      background: var(--bg-panel);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.65);
+    }
+
+    .panel-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 18px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .panel-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      color: var(--accent-bright);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .panel-title::before {
+      content: '';
+      display: inline-block;
+      width: 8px;
+      height: 20px;
+      background: var(--accent-crimson);
+      border-radius: 3px;
+      box-shadow: 0 0 8px var(--accent-crimson);
+    }
+
+    /* Controls Grid */
+    .controls-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 18px;
+    }
+
+    .control-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      padding: 18px;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .control-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* Switch Checkbox */
+    .toggle-label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      font-weight: 600;
+      user-select: none;
+    }
+
+    .toggle-label input[type="checkbox"] {
+      appearance: none;
+      width: 44px;
+      height: 24px;
+      background: #2b2b36;
+      border-radius: 12px;
+      position: relative;
+      cursor: pointer;
+      transition: 0.25s;
+      border: 1px solid #3d3d4d;
+    }
+
+    .toggle-label input[type="checkbox"]::after {
+      content: '';
+      width: 18px;
+      height: 18px;
+      background: #aaa;
+      border-radius: 50%;
+      position: absolute;
+      top: 2px;
+      left: 3px;
+      transition: 0.25s;
+    }
+
+    .toggle-label input[type="checkbox"]:checked {
+      background: var(--accent-dark);
+      border-color: var(--accent-crimson);
+    }
+
+    .toggle-label input[type="checkbox"]:checked::after {
+      background: #fff;
+      left: 21px;
+      box-shadow: 0 0 8px var(--accent-bright);
+    }
+
+    /* Inputs & Selects */
+    input[type="number"], select, input[type="text"] {
+      background: var(--bg-void);
+      border: 1px solid #38313a;
+      color: var(--text-main);
+      padding: 8px 12px;
+      border-radius: 6px;
+      font-size: 0.95rem;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    input[type="number"] {
+      width: 85px;
+      text-align: center;
+      font-weight: 700;
+    }
+
+    input[type="number"]:focus, select:focus, input[type="text"]:focus {
+      border-color: var(--accent-crimson);
+      box-shadow: 0 0 8px var(--accent-glow);
+    }
+
+    /* Buttons */
+    .action-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-top: 20px;
+      padding-top: 18px;
+      border-top: 1px solid var(--border-subtle);
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .btn {
+      padding: 12px 22px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      letter-spacing: 0.5px;
+    }
+
+    .btn-random {
+      background: linear-gradient(135deg, var(--accent-crimson), #9e0b28);
+      color: #fff;
+      box-shadow: 0 4px 18px var(--accent-glow);
+    }
+
+    .btn-random:hover {
+      background: linear-gradient(135deg, var(--accent-bright), var(--accent-crimson));
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(255, 42, 85, 0.6);
+    }
+
+    .btn-launch {
+      background: #191922;
+      color: #fff;
+      border: 2px solid var(--accent-crimson);
+      box-shadow: 0 0 15px rgba(220, 20, 60, 0.25);
+    }
+
+    .btn-launch:hover {
+      background: var(--accent-crimson);
+      box-shadow: 0 0 25px var(--accent-glow);
+      transform: translateY(-2px);
+    }
+
+    .btn-small {
+      padding: 6px 13px;
+      font-size: 0.82rem;
+      background: var(--bg-chip);
+      color: var(--text-muted);
+      border: 1px solid var(--border-subtle);
+      border-radius: 6px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .btn-small:hover {
+      color: #fff;
+      border-color: var(--accent-crimson);
+      background: var(--bg-chip-hover);
+    }
+
+    /* Interactive Chips / Pills */
+    .chip-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+    }
+
+    .chip-scroll {
+      max-height: 360px;
+      overflow-y: auto;
+      padding-right: 6px;
+    }
+
+    .chip-scroll::-webkit-scrollbar {
+      width: 7px;
+    }
+    .chip-scroll::-webkit-scrollbar-track {
+      background: var(--bg-void);
+      border-radius: 4px;
+    }
+    .chip-scroll::-webkit-scrollbar-thumb {
+      background: #3a2229;
+      border-radius: 4px;
+    }
+    .chip-scroll::-webkit-scrollbar-thumb:hover {
+      background: var(--accent-crimson);
+    }
+
+    .chip {
+      background: var(--bg-chip);
+      border: 1px solid #2e2932;
+      color: var(--text-main);
+      padding: 7px 14px;
+      border-radius: 20px;
+      font-size: 0.88rem;
+      cursor: pointer;
+      user-select: none;
+      transition: all 0.16s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .chip:hover {
+      background: var(--bg-chip-hover);
+      border-color: #6e1c2e;
+    }
+
+    .chip.selected {
+      background: linear-gradient(135deg, var(--accent-crimson), #8f0c25);
+      border-color: var(--accent-bright);
+      color: #ffffff;
+      font-weight: 600;
+      box-shadow: 0 0 12px var(--accent-glow);
+    }
+
+    .chip .id-badge {
+      font-size: 0.72rem;
+      opacity: 0.65;
+      font-family: monospace;
+    }
+
+    /* Live URL Preview Box */
+    .url-preview-box {
+      margin-top: 15px;
+      background: var(--bg-void);
+      border: 1px solid var(--border-subtle);
+      padding: 12px 15px;
+      border-radius: 8px;
+      font-family: monospace;
+      font-size: 0.85rem;
+      color: #ff8da1;
+      word-break: break-all;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .counter-badge {
+      background: var(--accent-dark);
+      color: #fff;
+      font-size: 0.78rem;
+      padding: 3px 9px;
+      border-radius: 12px;
+      border: 1px solid var(--accent-crimson);
+    }
+
+    .search-bar-wrap {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .custom-tag-adder {
+      margin-top: 16px;
+      padding-top: 14px;
+      border-top: 1px dashed var(--border-subtle);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="red-moon"></div>
+    <h1>Red Moon Under the Heavens</h1>
+    <p class="subtitle">Novel Updates Series Finder — Multi-Language Genre & Tag Randomizer</p>
+  </header>
+
+  <main class="container">
+
+    <!-- 1. RANDOMIZER & LAUNCH DASHBOARD -->
+    <section class="panel">
+      <div class="panel-header">
+        <div class="panel-title">Randomizer Settings & Launchpad</div>
+        <button class="btn-small" onclick="resetAllFilters()">Reset Everything</button>
+      </div>
+
+      <div class="controls-grid">
+        <!-- Genre Randomizer Control -->
+        <div class="control-box">
+          <div class="control-row">
+            <label class="toggle-label">
+              <input type="checkbox" id="enableGenreRand" checked>
+              <span>Randomize Genres</span>
+            </label>
+            <span class="counter-badge" id="genreLimitLabel">Max: 32</span>
+          </div>
+          <div class="control-row">
+            <span>Amount of Genres to Roll:</span>
+            <input type="number" id="genreRandCount" value="2" min="1" max="32">
+          </div>
+          <div class="control-row">
+            <span>Genre Match Logic (`mgi`):</span>
+            <select id="genreMatchLogic" onchange="updateUrlPreview()">
+              <option value="or" selected>OR (Match Any Selected)</option>
+              <option value="and">AND (Must Have All)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Tag Randomizer Control -->
+        <div class="control-box">
+          <div class="control-row">
+            <label class="toggle-label">
+              <input type="checkbox" id="enableTagRand" checked>
+              <span>Randomize Tags</span>
+            </label>
+            <span class="counter-badge" id="tagLimitLabel">Max: 120</span>
+          </div>
+          <div class="control-row">
+            <span>Amount of Tags to Roll:</span>
+            <input type="number" id="tagRandCount" value="3" min="1" max="120">
+          </div>
+          <div class="control-row">
+            <span>Tag Match Logic (`mtgi`):</span>
+            <select id="tagMatchLogic" onchange="updateUrlPreview()">
+              <option value="or" selected>OR (Match Any Selected)</option>
+              <option value="and">AND (Must Have All)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Sorting Control -->
+        <div class="control-box">
+          <div class="control-row">
+            <strong>Sort By (`sort`):</strong>
+            <select id="sortBy" onchange="updateUrlPreview()">
+              <option value="sdate" selected>Last Updated (Default)</option>
+              <option value="srank">Rank</option>
+              <option value="srate">Rating</option>
+              <option value="sread">Readers</option>
+              <option value="srel">Chapters</option>
+              <option value="sreview">Reviews</option>
+              <option value="abc">Title (A-Z)</option>
+            </select>
+          </div>
+          <div class="control-row">
+            <strong>Sort Order (`order`):</strong>
+            <select id="sortOrder" onchange="updateUrlPreview()">
+              <option value="desc" selected>Descending (High to Low / Newest)</option>
+              <option value="asc">Ascending (Low to High / Oldest)</option>
+            </select>
+          </div>
+          <div class="control-row" style="font-size: 0.82rem; color: var(--text-muted);">
+            <span>Tip: Use "OR" logic when rolling many genres/tags so Novel Updates finds plenty of novels!</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Action Buttons -->
+      <div class="action-bar">
+        <div class="btn-group">
+          <button class="btn btn-random" onclick="runRandomizer()">
+            🎲 Roll Random Selection
+          </button>
+          <button class="btn btn-random" style="background: #3a101b; border-color: var(--accent-crimson);" onclick="runRandomizerAndGo()">
+            ⚡ Roll & Go Immediately
+          </button>
+        </div>
+
+        <a id="launchBtn" href="https://www.novelupdates.com/series-finder/?sf=1&org=496&sort=sdate&order=desc" target="_blank" rel="noopener noreferrer" class="btn btn-launch">
+          🌙 Open in Novel Updates ↗
+        </a>
+      </div>
+
+      <!-- Live Link Preview -->
+      <div class="url-preview-box">
+        <span id="urlPreviewText">https://www.novelupdates.com/series-finder/?sf=1&org=496&sort=sdate&order=desc</span>
+        <button class="btn-small" onclick="copyGeneratedUrl()">Copy URL</button>
+      </div>
+    </section>
+
+    <!-- 2. LANGUAGES (MULTI-SELECT) -->
+    <section class="panel">
+      <div class="panel-header">
+        <div class="panel-title">
+          Original Language (`org`)
+          <span class="counter-badge" id="langSelectedCount">1 Selected</span>
+        </div>
+        <div class="btn-group">
+          <button class="btn-small" onclick="selectAllGroup('languages')">Select All</button>
+          <button class="btn-small" onclick="clearGroup('languages')">Clear Languages</button>
+        </div>
+      </div>
+      <div class="chip-grid" id="languageGrid"></div>
+    </section>
+
+    <!-- 3. GENRES (INDIVIDUAL + RANDOM) -->
+    <section class="panel">
+      <div class="panel-header">
+        <div class="panel-title">
+          Genres (`gi`)
+          <span class="counter-badge" id="genreSelectedCount">0 Selected</span>
+        </div>
+        <div class="btn-group">
+          <button class="btn-small" onclick="rollOnlyGenres()">🎲 Roll Genres Only</button>
+          <button class="btn-small" onclick="selectAllGroup('genres')">Select All</button>
+          <button class="btn-small" onclick="clearGroup('genres')">Clear Genres</button>
+        </div>
+      </div>
+      <div class="chip-grid" id="genreGrid"></div>
+    </section>
+
+    <!-- 4. TAGS (INDIVIDUAL + RANDOM + SEARCH) -->
+    <section class="panel">
+      <div class="panel-header">
+        <div class="panel-title">
+          Tags (`tgi`)
+          <span class="counter-badge" id="tagSelectedCount">0 Selected</span>
+        </div>
+        <div class="search-bar-wrap">
+          <input type="text" id="tagSearchInput" placeholder="Search tags..." oninput="filterTagPills()">
+          <button class="btn-small" onclick="rollOnlyTags()">🎲 Roll Tags Only</button>
+          <button class="btn-small" onclick="clearGroup('tags')">Clear Tags</button>
+        </div>
+      </div>
+
+      <div class="chip-grid chip-scroll" id="tagGrid"></div>
+
+      <!-- Custom Tag ID Adder -->
+      <div class="custom-tag-adder">
+        <span>Want a specific niche tag from Novel Updates? Add its Name & ID:</span>
+        <input type="text" id="customTagName" placeholder="Tag Name (e.g. Time Loop)">
+        <input type="number" id="customTagId" placeholder="ID" style="width: 100px;">
+        <button class="btn-small" onclick="addCustomTag()">+ Add Tag to List</button>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    // 1. VERIFIED NOVEL UPDATES LANGUAGES (org parameter)
+    const LANGUAGES = [
+      { name: "Japanese", id: "496" },
+      { name: "Chinese", id: "495" },
+      { name: "Korean", id: "497" },
+      { name: "Indonesian", id: "9179" },
+      { name: "Filipino", id: "9181" },
+      { name: "Khmer", id: "18657" },
+      { name: "Malaysian", id: "9183" },
+      { name: "Thai", id: "9954" },
+      { name: "Vietnamese", id: "9177" }
+    ];
+
+    // 2. VERIFIED NOVEL UPDATES GENRES (gi parameter - Complete 35 Genres)
+    const GENRES = [
+      { name: "Action", id: "8" },
+      { name: "Adult", id: "280" },
+      { name: "Adventure", id: "13" },
+      { name: "Comedy", id: "17" },
+      { name: "Drama", id: "9" },
+      { name: "Ecchi", id: "292" },
+      { name: "Fantasy", id: "5" },
+      { name: "Gender Bender", id: "168" },
+      { name: "Harem", id: "3" },
+      { name: "Historical", id: "330" },
+      { name: "Horror", id: "343" },
+      { name: "Josei", id: "324" },
+      { name: "Martial Arts", id: "14" },
+      { name: "Mature", id: "4" },
+      { name: "Mecha", id: "10" },
+      { name: "Mystery", id: "245" },
+      { name: "Psychological", id: "486" },
+      { name: "Romance", id: "15" },
+      { name: "School Life", id: "6" },
+      { name: "Sci-fi", id: "11" },
+      { name: "Seinen", id: "18" },
+      { name: "Shoujo", id: "157" },
+      { name: "Shoujo Ai", id: "851" },
+      { name: "Shounen", id: "12" },
+      { name: "Shounen Ai", id: "1692" },
+      { name: "Slice of Life", id: "7" },
+      { name: "Smut", id: "281" },
+      { name: "Sports", id: "1357" },
+      { name: "Supernatural", id: "16" },
+      { name: "Tragedy", id: "132" },
+      { name: "Wuxia", id: "479" },
+      { name: "Xianxia", id: "480" },
+      { name: "Xuanhuan", id: "3954" },
+      { name: "Yaoi", id: "560" },
+      { name: "Yuri", id: "922" }
+    ];
+
+    // 3. VERIFIED NOVEL UPDATES POPULAR TAGS (tgi parameter)
+    let TAGS = [
+      { name: "Academy", id: "78" },
+      { name: "Accelerated Growth", id: "81" },
+      { name: "Acting", id: "83" },
+      { name: "Adapted to Anime", id: "86" },
+      { name: "Adapted to Manga", id: "88" },
+      { name: "Adapted to Manhwa", id: "90" },
+      { name: "Adventurers", id: "97" },
+      { name: "Alchemy", id: "106" },
+      { name: "Alternate World", id: "112" },
+      { name: "Amnesia", id: "113" },
+      { name: "Ancient China", id: "116" },
+      { name: "Ancient Times", id: "117" },
+      { name: "Antihero Protagonist", id: "129" },
+      { name: "Apathetic Protagonist", id: "132" },
+      { name: "Apocalypse", id: "133" },
+      { name: "Aristocracy", id: "139" },
+      { name: "Artifact Crafting", id: "145" },
+      { name: "Assassins", id: "149" },
+      { name: "Beast Companions", id: "178" },
+      { name: "Beautiful Female Lead", id: "184" },
+      { name: "Betrayal", id: "190" },
+      { name: "Bickering Couple", id: "192" },
+      { name: "Blacksmith", id: "199" },
+      { name: "Bloodlines", id: "203" },
+      { name: "Boss-Subordinate Relationship", id: "212" },
+      { name: "Calm Protagonist", id: "242" },
+      { name: "Card Games", id: "248" },
+      { name: "Carefree Protagonist", id: "249" },
+      { name: "Caring Protagonist", id: "250" },
+      { name: "Cautious Protagonist", id: "252" },
+      { name: "Character Growth", id: "260" },
+      { name: "Charismatic Protagonist", id: "261" },
+      { name: "Charming Protagonist", id: "262" },
+      { name: "Cheats", id: "264" },
+      { name: "Childhood Friends", id: "270" },
+      { name: "Chuunibyou", id: "279" },
+      { name: "Clans", id: "281" },
+      { name: "Clever Protagonist", id: "285" },
+      { name: "Cold Love Interests", id: "291" },
+      { name: "Cold Protagonist", id: "292" },
+      { name: "Comedic Undertone", id: "300" },
+      { name: "Complex Family Relationships", id: "303" },
+      { name: "Cooking", id: "316" },
+      { name: "Crafting", id: "326" },
+      { name: "Cross-dressing", id: "332" },
+      { name: "Cultivation", id: "339" },
+      { name: "Cunning Protagonist", id: "340" },
+      { name: "Curses", id: "342" },
+      { name: "Cute Children", id: "343" },
+      { name: "Cute Protagonist", id: "344" },
+      { name: "Death of Loved Ones", id: "359" },
+      { name: "Demons", id: "371" },
+      { name: "Dense Protagonist", id: "373" },
+      { name: "Depictions of Cruelty", id: "374" },
+      { name: "Detectives", id: "381" },
+      { name: "Determined Protagonist", id: "382" },
+      { name: "Devoted Love Interests", id: "384" },
+      { name: "Doting Love Interests", id: "412" },
+      { name: "Dragons", id: "419" },
+      { name: "Dungeons", id: "426" },
+      { name: "Economics", id: "435" },
+      { name: "Elemental Magic", id: "442" },
+      { name: "Elves", id: "444" },
+      { name: "Evil Gods", id: "461" },
+      { name: "Evil Protagonist", id: "463" },
+      { name: "Familial Love", id: "476" },
+      { name: "Familiars", id: "477" },
+      { name: "Family", id: "478" },
+      { name: "Farming", id: "488" },
+      { name: "Fast Cultivation", id: "490" },
+      { name: "Fast Learner", id: "491" },
+      { name: "Female Protagonist", id: "497" },
+      { name: "First-time Intercourse", id: "506" },
+      { name: "Flashbacks", id: "510" },
+      { name: "Former Hero", id: "521" },
+      { name: "Friends Become Enemies", id: "527" },
+      { name: "Friendship", id: "528" },
+      { name: "Futuristic Setting", id: "532" },
+      { name: "Game Elements", id: "536" },
+      { name: "Genius Protagonist", id: "546" },
+      { name: "Ghosts", id: "548" },
+      { name: "God Protagonist", id: "555" },
+      { name: "Goddesses", id: "556" },
+      { name: "Gods", id: "558" },
+      { name: "Grinding", id: "565" },
+      { name: "Guilds", id: "568" },
+      { name: "Handsome Male Lead", id: "576" },
+      { name: "Hard-Working Protagonist", id: "577" },
+      { name: "Hiding True Abilities", id: "592" },
+      { name: "Hiding True Identity", id: "593" },
+      { name: "Human-Nonhuman Relationship", id: "608" },
+      { name: "Immortals", id: "619" },
+      { name: "Imperial Harem", id: "620" },
+      { name: "Interdimensional Travel", id: "638" },
+      { name: "Jack of All Trades", id: "646" },
+      { name: "Kind Love Interests", id: "656" },
+      { name: "Kingdom Building", id: "657" },
+      { name: "Knights", id: "660" },
+      { name: "Lack of Common Sense", id: "663" },
+      { name: "Late Romance", id: "668" },
+      { name: "Lazy Protagonist", id: "670" },
+      { name: "Leadership", id: "671" },
+      { name: "Level System", id: "675" },
+      { name: "Loyal Subordinates", id: "700" },
+      { name: "Lucky Protagonist", id: "702" },
+      { name: "Magic", id: "704" },
+      { name: "Magic Formations", id: "706" },
+      { name: "Magical Space", id: "709" },
+      { name: "Maids", id: "712" },
+      { name: "Male Protagonist", id: "714" },
+      { name: "Management", id: "716" },
+      { name: "Marriage", id: "723" },
+      { name: "Master-Disciple Relationship", id: "729" },
+      { name: "Master-Servant Relationship", id: "730" },
+      { name: "Medical Knowledge", id: "736" },
+      { name: "Mercenaries", id: "741" },
+      { name: "Merchants", id: "742" },
+      { name: "Military", id: "745" },
+      { name: "Misunderstandings", id: "751" },
+      { name: "Mob Protagonist", id: "753" },
+      { name: "Modern Day", id: "754" },
+      { name: "Modern Knowledge", id: "755" },
+      { name: "Monster Girls", id: "761" },
+      { name: "Monster Tamer", id: "763" },
+      { name: "Monsters", id: "764" },
+      { name: "Multiple POV", id: "772" },
+      { name: "Multiple Realms", id: "774" },
+      { name: "Multiple Reincarnated Individuals", id: "775" },
+      { name: "Mysterious Family Background", id: "784" },
+      { name: "Mythology", id: "789" },
+      { name: "Necromancer", id: "796" },
+      { name: "Nobles", id: "806" },
+      { name: "Non-humanoid Protagonist", id: "808" },
+      { name: "Non-human Protagonist", id: "809" },
+      { name: "Older Love Interests", id: "820" },
+      { name: "Overpowered Protagonist", id: "4598" },
+      { name: "Protagonist Strong from the Start", id: "167" },
+      { name: "Possessive Characters", id: "877" },
+      { name: "Pragmatic Protagonist", id: "884" },
+      { name: "Reincarnation", id: "928" },
+      { name: "Revenge", id: "937" },
+      { name: "Ruthless Protagonist", id: "951" },
+      { name: "Scheming", id: "961" },
+      { name: "Second Chance", id: "966" },
+      { name: "Secret Identity", id: "968" },
+      { name: "Secret Organizations", id: "969" },
+      { name: "Shameless Protagonist", id: "983" },
+      { name: "Showbiz", id: "992" },
+      { name: "Slow Growth at Start", id: "1006" },
+      { name: "Slow Romance", id: "1007" },
+      { name: "Smart Couple", id: "1008" },
+      { name: "Social Outcasts", id: "1011" },
+      { name: "Soldiers", id: "1013" },
+      { name: "Soul Power", id: "1016" },
+      { name: "Spatial Manipulation", id: "1020" },
+      { name: "Special Abilities", id: "1021" },
+      { name: "Strategist", id: "1038" },
+      { name: "Strength-based Social Hierarchy", id: "1039" },
+      { name: "Strong Love Interests", id: "1040" },
+      { name: "Strong to Stronger", id: "1041" },
+      { name: "Sudden Strength Gain", id: "1047" },
+      { name: "Sudden Wealth", id: "1048" },
+      { name: "Summoned Hero", id: "1052" },
+      { name: "Survival", id: "1056" },
+      { name: "Survival Game", id: "1057" },
+      { name: "Sword And Magic", id: "1059" },
+      { name: "Sword Wielder", id: "1060" },
+      { name: "System Administrator", id: "1062" },
+      { name: "Time Manipulation", id: "1083" },
+      { name: "Time Paradox", id: "1084" },
+      { name: "Time Skip", id: "1085" },
+      { name: "Time Travel", id: "1086" },
+      { name: "Transmigration", id: "1092" },
+      { name: "Transported into a Game World", id: "1093" },
+      { name: "Transported to Another World", id: "1094" },
+      { name: "Underestimated Protagonist", id: "1107" },
+      { name: "Unique Cultivation Technique", id: "1112" },
+      { name: "Vampires", id: "1117" },
+      { name: "Virtual Reality", id: "1122" },
+      { name: "Wars", id: "1131" },
+      { name: "Weak to Strong", id: "1134" },
+      { name: "Wealthy Characters", id: "1135" },
+      { name: "Wizards", id: "1145" },
+      { name: "World Travel", id: "1147" },
+      { name: "Yandere", id: "1152" },
+      { name: "Younger Love Interests", id: "1155" },
+      { name: "Zombies", id: "1157" }
+    ];
+
+    // Load any custom user-saved tags from localStorage
+    const savedCustomTags = localStorage.getItem("redMoonCustomTags");
+    if (savedCustomTags) {
+      try {
+        const parsed = JSON.parse(savedCustomTags);
+        TAGS = [...TAGS, ...parsed];
+      } catch (e) {}
+    }
+
+    // State Sets (Default language: 496 Japanese as requested)
+    const selectedState = {
+      languages: new Set(["496"]),
+      genres: new Set(),
+      tags: new Set()
+    };
+
+    function initApp() {
+      document.getElementById("genreLimitLabel").textContent = `Max: ${GENRES.length}`;
+      document.getElementById("genreRandCount").max = GENRES.length;
+
+      document.getElementById("tagLimitLabel").textContent = `Max: ${TAGS.length}`;
+      document.getElementById("tagRandCount").max = TAGS.length;
+
+      renderChips("languages", LANGUAGES, "languageGrid");
+      renderChips("genres", GENRES, "genreGrid");
+      renderChips("tags", TAGS, "tagGrid");
+      updateUrlPreview();
+    }
+
+    function renderChips(groupKey, dataArray, containerId) {
+      const container = document.getElementById(containerId);
+      container.innerHTML = "";
+
+      dataArray.forEach(item => {
+        const chip = document.createElement("div");
+        chip.className = "chip" + (selectedState[groupKey].has(item.id) ? " selected" : "");
+        chip.dataset.id = item.id;
+        chip.dataset.name = item.name.toLowerCase();
+        chip.innerHTML = `<span>${item.name}</span><span class="id-badge">#${item.id}</span>`;
+
+        chip.addEventListener("click", () => {
+          if (selectedState[groupKey].has(item.id)) {
+            selectedState[groupKey].delete(item.id);
+            chip.classList.remove("selected");
+          } else {
+            selectedState[groupKey].add(item.id);
+            chip.classList.add("selected");
+          }
+          updateUrlPreview();
+        });
+
+        container.appendChild(chip);
+      });
+    }
+
+    function syncVisualChips(groupKey, containerId) {
+      const container = document.getElementById(containerId);
+      const chips = container.querySelectorAll(".chip");
+      chips.forEach(chip => {
+        if (selectedState[groupKey].has(chip.dataset.id)) {
+          chip.classList.add("selected");
+        } else {
+          chip.classList.remove("selected");
+        }
+      });
+    }
+
+    // Fisher-Yates Unbiased Shuffle for accurate randomization
+    function getRandomSample(array, count) {
+      const copy = [...array];
+      for (let i = copy.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [copy[i], copy[j]] = [copy[j], copy[i]];
+      }
+      return copy.slice(0, Math.max(0, Math.min(count, copy.length)));
+    }
+
+    function rollOnlyGenres() {
+      const count = parseInt(document.getElementById("genreRandCount").value, 10) || 1;
+      const picked = getRandomSample(GENRES, count);
+      selectedState.genres = new Set(picked.map(g => g.id));
+      syncVisualChips("genres", "genreGrid");
+      updateUrlPreview();
+    }
+
+    function rollOnlyTags() {
+      const count = parseInt(document.getElementById("tagRandCount").value, 10) || 1;
+      const picked = getRandomSample(TAGS, count);
+      selectedState.tags = new Set(picked.map(t => t.id));
+      syncVisualChips("tags", "tagGrid");
+      updateUrlPreview();
+    }
+
+    function runRandomizer() {
+      const doGenres = document.getElementById("enableGenreRand").checked;
+      const doTags = document.getElementById("enableTagRand").checked;
+
+      if (!doGenres && !doTags) {
+        alert("Please enable at least 'Randomize Genres' or 'Randomize Tags' first!");
+        return;
+      }
+
+      if (doGenres) {
+        rollOnlyGenres();
+      }
+      if (doTags) {
+        rollOnlyTags();
+      }
+    }
+
+    function runRandomizerAndGo() {
+      runRandomizer();
+      const url = buildNovelUpdatesUrl();
+      window.open(url, "_blank", "noopener,noreferrer");
+    }
+
+    function selectAllGroup(groupKey) {
+      const source = groupKey === "languages" ? LANGUAGES : (groupKey === "genres" ? GENRES : TAGS);
+      const gridId = groupKey === "languages" ? "languageGrid" : (groupKey === "genres" ? "genreGrid" : "tagGrid");
+      selectedState[groupKey] = new Set(source.map(item => item.id));
+      syncVisualChips(groupKey, gridId);
+      updateUrlPreview();
+    }
+
+    function clearGroup(groupKey) {
+      const gridId = groupKey === "languages" ? "languageGrid" : (groupKey === "genres" ? "genreGrid" : "tagGrid");
+      selectedState[groupKey].clear();
+      syncVisualChips(groupKey, gridId);
+      updateUrlPreview();
+    }
+
+    function resetAllFilters() {
+      selectedState.languages = new Set(["496"]); // Reset to default Japanese (496)
+      selectedState.genres.clear();
+      selectedState.tags.clear();
+      syncVisualChips("languages", "languageGrid");
+      syncVisualChips("genres", "genreGrid");
+      syncVisualChips("tags", "tagGrid");
+      updateUrlPreview();
+    }
+
+    function filterTagPills() {
+      const query = document.getElementById("tagSearchInput").value.toLowerCase().trim();
+      const chips = document.querySelectorAll("#tagGrid .chip");
+      chips.forEach(chip => {
+        const matches = chip.dataset.name.includes(query) || chip.dataset.id.includes(query);
+        chip.style.display = matches ? "inline-flex" : "none";
+      });
+    }
+
+    function addCustomTag() {
+      const nameInput = document.getElementById("customTagName");
+      const idInput = document.getElementById("customTagId");
+      const name = nameInput.value.trim();
+      const id = idInput.value.trim();
+
+      if (!name || !id) {
+        alert("Please enter both a Tag Name and its numeric Novel Updates ID.");
+        return;
+      }
+
+      if (TAGS.some(t => t.id === id)) {
+        alert("That Tag ID is already in the list!");
+        return;
+      }
+
+      const newTag = { name, id };
+      TAGS.push(newTag);
+      selectedState.tags.add(id);
+
+      // Persist in localStorage
+      const existingCustom = JSON.parse(localStorage.getItem("redMoonCustomTags") || "[]");
+      existingCustom.push(newTag);
+      localStorage.setItem("redMoonCustomTags", JSON.stringify(existingCustom));
+
+      nameInput.value = "";
+      idInput.value = "";
+      document.getElementById("tagLimitLabel").textContent = `Max: ${TAGS.length}`;
+      document.getElementById("tagRandCount").max = TAGS.length;
+
+      renderChips("tags", TAGS, "tagGrid");
+      updateUrlPreview();
+    }
+
+    function buildNovelUpdatesUrl() {
+      const base = "https://www.novelupdates.com/series-finder/?sf=1";
+      const params = [];
+
+      // 1. Languages (org)
+      if (selectedState.languages.size > 0) {
+        params.push(`org=${Array.from(selectedState.languages).join(",")}`);
+      }
+
+      // 2. Genres (gi & mgi)
+      if (selectedState.genres.size > 0) {
+        const mgi = document.getElementById("genreMatchLogic").value;
+        params.push(`gi=${Array.from(selectedState.genres).join(",")}`);
+        params.push(`mgi=${mgi}`);
+      }
+
+      // 3. Tags (tgi & mtgi)
+      if (selectedState.tags.size > 0) {
+        const mtgi = document.getElementById("tagMatchLogic").value;
+        params.push(`tgi=${Array.from(selectedState.tags).join(",")}`);
+        params.push(`mtgi=${mtgi}`);
+      }
+
+      // 4. Sort & Order
+      const sort = document.getElementById("sortBy").value;
+      const order = document.getElementById("sortOrder").value;
+      params.push(`sort=${sort}`);
+      params.push(`order=${order}`);
+
+      return `${base}&${params.join("&")}`;
+    }
+
+    function updateUrlPreview() {
+      document.getElementById("langSelectedCount").textContent = `${selectedState.languages.size} Selected`;
+      document.getElementById("genreSelectedCount").textContent = `${selectedState.genres.size} Selected`;
+      document.getElementById("tagSelectedCount").textContent = `${selectedState.tags.size} Selected`;
+
+      const finalUrl = buildNovelUpdatesUrl();
+      document.getElementById("urlPreviewText").textContent = finalUrl;
+      document.getElementById("launchBtn").href = finalUrl;
+    }
+
+    function copyGeneratedUrl() {
+      const url = buildNovelUpdatesUrl();
+      navigator.clipboard.writeText(url).then(() => {
+        alert("Novel Updates URL copied to clipboard!");
+      });
+    }
+
+    // Initialize on load
+    initApp();
+  </script>
+</body>
+</html>
